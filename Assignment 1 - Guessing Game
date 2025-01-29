@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		int num = (int)(Math.random()*9 + 1);
+		Scanner input = new Scanner(System.in);
+		int choice = 0;
+		int max = 2;
+		//System.out.print(num);
+		for(int i = 0; i < max; i++){
+		    System.out.println("Guess a number from 1-10 : ");
+		    choice = input.nextInt();
+		    if(choice < num && i < max-1){
+		        System.out.println("Too low, try again.");
+		    }
+		    else if(choice > num && i < max-1){
+		        System.out.println("Too high, try again.");
+		    }
+		    else if(choice == num){
+		        System.out.println("Congratulations! You've guessed the correct number.");
+		        break;
+		    }
+		    if(i == max-1){
+		        System.out.println("You lose!!");
+		        System.out.println("The number was " + Integer.toString(num) + ".");
+		        break;
+		    }
+		    System.out.println(Integer.toString((max-1)-i) + " tries remaining.");
+		}
+	}
+}
